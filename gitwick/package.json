@@ -8,7 +8,10 @@
   "engines": {
     "vscode": "^1.90.0"
   },
-  "categories": ["Visualization", "Other"],
+  "categories": [
+    "Visualization",
+    "Other"
+  ],
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
@@ -26,12 +29,15 @@
     "test": "tsc -p ./ && node ./out/__tests__/runTest.js"
   },
   "devDependencies": {
-    "@types/vscode": "^1.90.0",
-    "@types/node": "^20.0.0",
     "@types/mocha": "^10.0.0",
-    "typescript": "^5.4.0",
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.90.0",
     "@vscode/test-electron": "^2.4.0",
+    "glob": "^10.0.0",
     "mocha": "^10.0.0",
-    "glob": "^10.0.0"
+    "typescript": "^5.4.0"
+  },
+  "dependencies": {
+    "lightweight-charts": "^4.2.2"
   }
 }
