@@ -77,6 +77,7 @@ function updateChart(candles) {
     high: c.high,
     low: c.low,
     close: c.close,
+    volume: c.volume,
   }));
 
   const volData = candles.map(c => ({
