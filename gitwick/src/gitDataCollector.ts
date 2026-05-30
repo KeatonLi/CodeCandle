@@ -13,9 +13,10 @@ export class GitDataCollector {
       execFile('git', args, {
         cwd: this.repoPath,
         maxBuffer: 50 * 1024 * 1024,
-      }, (err, stdout) => {
+      }, (err, stdout, stderr) => {
         if (err) {
-          reject(new Error(`git ${args[0]} failed: ${err.message}`));
+          const detail = stderr ? stderr.trim() : err.message;
+          reject(new Error(`git ${args[0]} failed: ${detail}`));
         } else {
           resolve(stdout);
         }
