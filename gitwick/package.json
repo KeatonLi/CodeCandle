@@ -23,7 +23,7 @@
     "vscode:prepublish": "tsc -p ./",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
-    "test": "node ./out/__tests__/runTest.js"
+    "test": "tsc -p ./ && node ./out/__tests__/runTest.js"
   },
   "devDependencies": {
     "@types/vscode": "^1.90.0",

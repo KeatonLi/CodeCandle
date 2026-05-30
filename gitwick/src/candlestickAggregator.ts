@@ -44,7 +44,7 @@ export class CandlestickAggregator {
    * Convert CommitRecord[] to CandleData[] for the given granularity.
    *
    * For each time bucket:
-   * - open  = cumulative LOC at first commit in bucket
+   * - open  = previous period's close (or first commit's LOC for the initial bucket)
    * - close = cumulative LOC at last commit in bucket
    * - high  = max cumulative LOC in bucket
    * - low   = min cumulative LOC in bucket
@@ -56,9 +56,11 @@ export class CandlestickAggregator {
   aggregate(records: CommitRecord[], granularity: Granularity): CandleData[] {
     if (records.length === 0) return [];
 
+    const sorted = [...records].sort((a, b) => a.timestamp - b.timestamp);
+
     // Compute cumulative LOC
     let cumulativeLoc = 0;
-    const withLoc = records.map(r => {
+    const withLoc = sorted.map(r => {
       cumulativeLoc += r.insertions - r.deletions;
       return { ...r, cumulativeLoc };
     });
