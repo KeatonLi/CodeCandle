@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gitwick</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div id="toolbar">
+    <span id="repoName">Gitwick</span>
+    <div id="granularityGroup">
+      <button class="granularity-btn active" data-gran="day">日</button>
+      <button class="granularity-btn" data-gran="week">周</button>
+      <button class="granularity-btn" data-gran="month">月</button>
+    </div>
+    <button id="refreshBtn" title="刷新">↻</button>
+  </div>
+
+  <div id="chartContainer"></div>
+
+  <div id="statusBar">
+    <span id="statusText">点击蜡烛查看详情</span>
+  </div>
+
+  <div id="errorOverlay" class="hidden">
+    <div class="error-box">
+      <p id="errorMessage"></p>
+      <button id="retryBtn">重试</button>
+    </div>
+  </div>
+
+  <script type="module" src="./chart.js"></script>
+</body>
+</html>

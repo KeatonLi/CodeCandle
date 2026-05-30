@@ -1,0 +1,123 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--vscode-editor-background, #1e1e1e);
+  color: var(--vscode-editor-foreground, #cccccc);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+  border-bottom: 1px solid var(--vscode-panel-border, #3c3c3c);
+  flex-shrink: 0;
+}
+
+#repoName {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+#granularityGroup {
+  display: flex;
+  gap: 0;
+  border: 1px solid var(--vscode-panel-border, #3c3c3c);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.granularity-btn {
+  padding: 4px 12px;
+  border: none;
+  background: transparent;
+  color: var(--vscode-editor-foreground, #cccccc);
+  cursor: pointer;
+  font-size: 12px;
+  border-right: 1px solid var(--vscode-panel-border, #3c3c3c);
+}
+
+.granularity-btn:last-child {
+  border-right: none;
+}
+
+.granularity-btn:hover {
+  background: var(--vscode-toolbar-hoverBackground, #2a2d2e);
+}
+
+.granularity-btn.active {
+  background: var(--vscode-button-background, #0078d4);
+  color: var(--vscode-button-foreground, #ffffff);
+}
+
+#refreshBtn {
+  margin-left: auto;
+  padding: 4px 10px;
+  border: none;
+  background: transparent;
+  color: var(--vscode-editor-foreground, #cccccc);
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px;
+}
+
+#refreshBtn:hover {
+  background: var(--vscode-toolbar-hoverBackground, #2a2d2e);
+}
+
+#chartContainer {
+  flex: 1;
+  position: relative;
+}
+
+#statusBar {
+  padding: 6px 16px;
+  border-top: 1px solid var(--vscode-panel-border, #3c3c3c);
+  font-size: 12px;
+  flex-shrink: 0;
+  color: var(--vscode-descriptionForeground, #999);
+}
+
+#errorOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--vscode-editor-background, #1e1e1e);
+}
+
+#errorOverlay.hidden {
+  display: none;
+}
+
+.error-box {
+  text-align: center;
+}
+
+.error-box p {
+  margin-bottom: 16px;
+  color: var(--vscode-errorForeground, #f48771);
+}
+
+.error-box button {
+  padding: 6px 20px;
+  border: none;
+  background: var(--vscode-button-background, #0078d4);
+  color: var(--vscode-button-foreground, #ffffff);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.error-box button:hover {
+  background: var(--vscode-button-hoverBackground, #026ec1);
+}
