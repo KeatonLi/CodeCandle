@@ -84,20 +84,22 @@ export class GitwickWebviewProvider {
     const webviewPath = vscode.Uri.joinPath(this.extensionUri, 'webview');
     const htmlPath = vscode.Uri.joinPath(webviewPath, 'index.html');
 
-    // Read the HTML file
-    let html = fs.readFileSync(htmlPath.fsPath, 'utf-8');
+    try {
+      let html = fs.readFileSync(htmlPath.fsPath, 'utf-8');
 
-    // Replace local resource references with webview URIs
-    const styleUri = this.panel!.webview.asWebviewUri(
-      vscode.Uri.joinPath(webviewPath, 'style.css')
-    );
-    const chartUri = this.panel!.webview.asWebviewUri(
-      vscode.Uri.joinPath(webviewPath, 'chart.js')
-    );
+      const styleUri = this.panel!.webview.asWebviewUri(
+        vscode.Uri.joinPath(webviewPath, 'style.css')
+      );
+      const chartUri = this.panel!.webview.asWebviewUri(
+        vscode.Uri.joinPath(webviewPath, 'chart.js')
+      );
 
-    html = html.replace('./style.css', styleUri.toString());
-    html = html.replace('./chart.js', chartUri.toString());
+      html = html.replace('./style.css', styleUri.toString());
+      html = html.replace('./chart.js', chartUri.toString());
 
-    return html;
+      return html;
+    } catch {
+      return `<!DOCTYPE html><html><body style="display:flex;align-items:center;justify-content:center;height:100vh;font-family:sans-serif;color:var(--vscode-errorForeground,#f48771);background:var(--vscode-editor-background,#1e1e1e);"><p>无法加载 Webview 资源文件。</p></body></html>`;
+    }
   }
 }
