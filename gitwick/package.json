@@ -1,0 +1,32 @@
+{
+  "name": "gitwick",
+  "displayName": "Gitwick",
+  "description": "Git commit history as candlestick charts — visualize your repo like a stock",
+  "version": "0.1.0",
+  "publisher": "libokai",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": ["Visualization", "Other"],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "gitwick.show",
+        "title": "Gitwick: Show Candlestick Chart"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "tsc -p ./",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.90.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.4.0"
+  }
+}
